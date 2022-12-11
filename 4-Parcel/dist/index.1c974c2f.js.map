@@ -1,0 +1,1 @@
+{"mappings":"AAAA,MAAM,QAAQ,SAAS,aAAa,CAAC;AAErC,MAAM,WAAW,GAAG,MAAM,WAAW,GAAG","sources":["js/script.js"],"sourcesContent":["const title = document.querySelector('h1');\n\ntitle.textContent = title.textContent + ' Javascipt bye!'"],"names":[],"version":3,"file":"index.1c974c2f.js.map","sourceRoot":"/__parcel_source_root/"}
