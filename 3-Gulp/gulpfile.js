@@ -16,6 +16,7 @@ const buildStyles = () => {
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('style.css'))
     .pipe(gulp.dest('build/'))
+    .pipe(browserSync.stream());
 }
 
 const buildScript = () => {
@@ -23,10 +24,12 @@ const buildScript = () => {
     .pipe(concat('script.js'))
     .pipe(uglify())
     .pipe(gulp.dest('build/'))
+    .pipe(browserSync.stream())
 }
 
 const build = () => {
-    buildHtml()
+    browserSync.reload();
+    buildHtml();
     buildScript()
     buildStyles()
 }
@@ -34,10 +37,12 @@ const build = () => {
 const start = () => {
     browserSync.init({
         server: {
-            baseDir: 'build/'
+            baseDir: '/'
         }
     })
-    gulp.watch(['js/**/*.js', 'css/**/*.scss', 'pages/**/*.html', 'index.html'], build())
+    gulp.watch('js/**/*.js', buildScript);
+    gulp.watch('css/**/*.scss', buildStyles);
+    gulp.watch(['pages/**/*.html', 'index.html']).on('change', browserSync.reload)
 }
 
 exports.build = build;
