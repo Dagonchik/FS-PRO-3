@@ -42,7 +42,7 @@ const start = () => {
     })
     gulp.watch('js/**/*.js', buildScript);
     gulp.watch('css/**/*.scss', buildStyles);
-    gulp.watch(['pages/**/*.html', 'index.html']).on('change', browserSync.reload)
+    gulp.watch(['pages/**/*.html', 'index.html'], buildHtml).on('change', browserSync.reload)
 }
 
 exports.build = build;

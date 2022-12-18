@@ -25,9 +25,39 @@
         }
     }
     &__baner{
+        height: 440px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-image: url('./images/header-background.png');
+        gap: 44px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        &-wrapper{
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+    }
+    &__title{
+        font-size: 27px;
+        font-weight: 700;
+        color: white;
+    }
+    &__button{
+        border: none;
+        width: 170px;
+        padding: 15px 0;
+        color: white;
+        border-radius: 4px;
+        background-color: #313131;
+        &--green{
+            background-color: #89CA62;
+        }
+        &--blue{
+            background-color: #14B9D5;
+        }
     }
 }
