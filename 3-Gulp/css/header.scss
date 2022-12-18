@@ -1,0 +1,33 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    &__nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #313131;
+    }
+    &__menu{
+        padding: 27px 0;
+        display: flex;
+        gap: 35px;
+    }
+    &__search{
+        padding: 27px 25px;
+        background-color: black;
+    }
+    &__link {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: white;
+        &:hover{
+            color: #14B9D5;
+        }
+    }
+    &__baner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
