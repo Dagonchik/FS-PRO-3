@@ -4,6 +4,7 @@ const concat = require('gulp-concat');
 const cssMinify = require('gulp-css-minify');
 const uglify = require('gulp-uglify');
 const browserSync = require('browser-sync').create();
+const sass = require('gulp-sass')(require('sass'));
 
 const buildHtml = () => {
     return gulp.src('*.html')
@@ -11,9 +12,9 @@ const buildHtml = () => {
 }
 
 const buildStyles = () => {
-    return gulp.src('css/**/*.css')
+    return gulp.src('css/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
     .pipe(concat('style.css'))
-    .pipe(cssMinify())
     .pipe(gulp.dest('build/'))
 }
 
@@ -25,7 +26,9 @@ const buildScript = () => {
 }
 
 const build = () => {
-    gulp.series(buildHtml, buildStyles, buildScript);
+    buildHtml()
+    buildScript()
+    buildStyles()
 }
 
 const start = () => {
@@ -34,8 +37,9 @@ const start = () => {
             baseDir: 'build/'
         }
     })
-    gulp.watch(['js/**/*.js', 'css/**/*.css', 'pages/**/*.html', 'index.html'], build())
+    gulp.watch(['js/**/*.js', 'css/**/*.scss', 'pages/**/*.html', 'index.html'], build())
 }
 
 exports.build = build;
+exports.buildStyles = buildStyles;
 exports.default = start;
