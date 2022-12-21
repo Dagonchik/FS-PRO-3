@@ -11,9 +11,16 @@
         color: #18B4CF;
     }
     &__list{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        max-width: 1200px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        // display: grid;
+        // grid-template-columns: repeat(2, 1fr);
         gap: 60px;
+        // @media (max-width: 760px) {
+        //     grid-template-columns: none;
+        // }
     }
     & .card{
         max-width: 555px;
