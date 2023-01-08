@@ -4,6 +4,21 @@
     align-items: center;
     margin: 56px 0;
     gap: 66px;
+    &.details {
+        & .card {
+            max-width: none;
+            height: 230px;
+            flex-direction: row;
+            &__body{
+                text-align: left;
+                height: 100%;
+            }
+            &__title, &__subtitle{
+                align-self: flex-start;
+            }
+            
+        }
+    }
     &__title{
         font-size: 27px;
         font-weight: 700;
@@ -28,6 +43,25 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        &__button{
+            border: none;
+            border-radius: 50px;
+            padding: 10px 40px;
+            &--call{
+                background-color: green;
+                color: white;
+            }
+            &--reserve{
+                background-color: darkcyan;
+                color: white;
+            }
+            &--list{
+                margin-top: auto;
+                align-self: flex-end;
+                display: flex;
+                gap: 20px;
+            }
+        }
         &__body{
             display: flex;
             flex-direction: column;
